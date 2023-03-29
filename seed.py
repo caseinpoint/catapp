@@ -14,9 +14,15 @@ def seed_cats():
 
 
 if __name__ == "__main__":
+    from subprocess import run # drop old db and recreate new one
+    run(['dropdb', '--if-exists', 'cats'])
+    run(['createdb', 'cats'])
+
     from flask import Flask  # make fake app
 
     app = Flask(__name__)
     connect_to_db(app)  # connect DB to it
 
-    seed_cats()  # seed starter data
+    with app.app_context():
+        db.create_all()
+        seed_cats()  # seed starter data
