@@ -7,7 +7,7 @@ def seed_cats():
     """Seed cats."""
 
     azrael = Cat(name="Azrael")
-    tom = Cat(name="Tom")
+    tom = Cat(name="Tommy")
     db.session.add(azrael)
     db.session.add(tom)
     db.session.commit()
