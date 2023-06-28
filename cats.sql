@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 13.4 (Ubuntu 13.4-4.pgdg18.04+1)
--- Dumped by pg_dump version 13.4 (Ubuntu 13.4-4.pgdg18.04+1)
+-- Dumped from database version 14.7 (Homebrew)
+-- Dumped by pg_dump version 14.7 (Homebrew)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -39,6 +39,7 @@ CREATE TABLE public.cat (
 --
 
 CREATE SEQUENCE public.cat_id_seq
+    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -65,6 +66,8 @@ ALTER TABLE ONLY public.cat ALTER COLUMN id SET DEFAULT nextval('public.cat_id_s
 --
 
 COPY public.cat (id, name) FROM stdin;
+1	Azrael
+2	Tommy
 \.
 
 
@@ -72,7 +75,7 @@ COPY public.cat (id, name) FROM stdin;
 -- Name: cat_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.cat_id_seq', 1, false);
+SELECT pg_catalog.setval('public.cat_id_seq', 2, true);
 
 
 --
